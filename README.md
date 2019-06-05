@@ -24,6 +24,8 @@ Before you run the project, you need to install:
 * [Unity 3D and Unity ML-Agents Toolkit](https://github.com/Unity-Technologies/ml-agents/blob/master/docs/Installation.md) 
 * OpenCV Python ```sudo apt-get install python-opencv```
 
+这应该是在ML-Agents从0.6版升级以后，
+
 ## Installing
 
 To run the project:
