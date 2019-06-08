@@ -79,6 +79,10 @@ To change from default setup to the one which uses external Semantic Segmentatio
 1. In ```HuggerAgent``` under ```Hugger Agent (Script)``` change ```Camera 1``` from ```SegmentationCameraOneHot``` to ```RGBCamera```.
 2. In ```Academy/Brain``` set ```Element 0/Width``` to 512 and ```Element 0/Height``` to 512. Switch off ```Element 0/Black And W```.
 
+原来是64 64 on
+
+改后运行特别慢
+
 ##### Training
 In ```gear-unity/trainer_config.yaml``` set ```segmentation: true```. Then, run ```mlagents-learn trainer_config.yaml --run-id=test_run --train --slow```.
 
@@ -92,12 +96,16 @@ For instructions how to train an agent simply apply steps from the [official ins
 ##### Inference
 Set ```Brain Type``` in ```Academy/Brain``` to ```Internal```. To run the inference and see the robot in action, drag ```pre-trained-models/BC.bytes``` into ```Graph Model``` and run the simulation.
 
+Custom Semantic Segmentation中改的配置要改回来才能运行
+
 ### Using Heuristic
 ---
 ##### Training
 In ```gear-unity/trainer_config.yaml``` set ```heuristics: true```. Then, run ```mlagents-learn trainer_config.yaml --run-id=test_run --train --slow```.
 ##### Inference
 Set ```Brain Type``` in ```Academy/Brain``` to ```Internal```. To run the inference and see the robot in action, drag ```pre-trained-models/Heuristic.bytes``` into ```Graph Model``` and run the simulation.
+
+Custom Semantic Segmentation中改的配置要改回来才能运行
 
 ## Authors
 
