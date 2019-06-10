@@ -24,7 +24,7 @@
 
 那么有没有可能变成自动化清理任务？坦率地说，这也是机器人可以更高效地完成的任务。尤其是智能自动机器人可以全天候工作。一群小型机器人更是可以将垃圾收集过程大大加速，同时具有很高的成本效益。
 
-![A simple ML-Agents environment](images/mlagents-NewTutSplash.png)
+![A simple ML-Agents environment](images/multiagents.gif)
 
 一群同步的自主机器人肯定能够超越人类工作者。
 
@@ -32,7 +32,7 @@
 
 1.2 智能体与环境：
 
-![A simple ML-Agents environment](images/mlagents-NewTutSplash.png)
+![A simple ML-Agents environment](images/scene.png)
 
 训练环境是一个房间，机器人的目标是探索环境并学习正确的推理（政策），我们通过一系列的奖励和惩罚间接达到这个目的。
 
@@ -40,6 +40,8 @@
 
 接近并收集需收集的物品（陈旧的面包，红色塑料杯和白色香肠）。
 不要与静态物体（椅子和桌子）碰撞，不要撞墙或收集木托盘（它们属于巴伐利亚帐篷的所有者）。
+
+![A simple ML-Agents environment](images/collect-avoid.png)
 
 机器人被建模为立方体，可以在房间内漫游并收集相关物品。它的动作向量包含三个元素：
 
@@ -52,7 +54,7 @@
 物体必须靠近机器人的前部（限制在具有绿色边缘的区域内）
 机器人必须决定激活“抓取器”。当抓取状态被激活时，机器人的颜色从白色变为红色。
 
-![A simple ML-Agents environment](images/mlagents-NewTutSplash.png)
+![A simple ML-Agents environment](images/greenvol.png)
 
 如果要收集物体，则必须将其限制在前面的体积内（绿色边缘）。
 
@@ -60,9 +62,9 @@
 
 1.3 感知、认知、行动
 
-![A simple ML-Agents environment](images/mlagents-NewTutSplash.png)
+![A simple ML-Agents environment](images/pca.png)
 
-GEAR的感知，认知和行动流程的可视化
+感知，认知和行动流程
 
 智能系统可以被抽象为感知，认知和行动的相互作用，这里的**感知**由英特尔的Intel RealSense camera处理，在每个时间步中为机器人提供两路信息来模拟传感器的输入：RGB帧和深度图depth map。下面是**认知**，RBG输入被转换为语义分割图，分类图像中的每个对象。这样，机器人知道RBG帧中每个像素的类别，然后将深度和语义分割图融合在一起，并通过神经网络（机器人的大脑）进行分析。最后，大脑输出一个关于机器人**动作**的决定。
 
@@ -96,11 +98,13 @@ reddit用户[Flag_Red](https://www.reddit.com/user/Flag_Red)指出了**每步惩
 
 2.1 语义分割
 
-![A simple ML-Agents environment](images/mlagents-NewTutSplash.png)
+![A simple ML-Agents environment](images/segnet.png)
 
 机器人本身不知道应该收集哪个物品、避免哪个物品，这个信息从一个神经网络中获得：将RBG图像映射为语义分割图。为此我们创建了一个3007对图像的数据集，包含RBG帧（输入）和对应的语义分割图（从Unity 3D自定义着色器获得的真值ground truth），然后使用[Semantic Segmentation Suite](https://github.com/GeorgeSeif/Semantic-Segmentation-Suite)和数据集快速训练[SegNet](https://arxiv.org/pdf/1511.00561.pdf)（Badrinarayan等，2015）。尽管SegNet并不是目前的最优模型，但其结构简单（易于调试和修改），问题领域相对简单（构建的图像，简单的光线条件，可重复的环境）和额外的要求（尽可能少的项目开销），这是一个不错的选择。
 
-![A simple ML-Agents environment](images/mlagents-NewTutSplash.png)
+![A simple ML-Agents environment](images/final3.gif)
+![A simple ML-Agents environment](images/final1.gif)
+![A simple ML-Agents environment](images/final2.gif)
 
 SegNet：输入，基础事实，预测。
 
