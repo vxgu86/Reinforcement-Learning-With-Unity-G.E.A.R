@@ -80,7 +80,7 @@
 
 ![A simple ML-Agents environment](images/pca.png)
 
-<img src="images/pca.png">
+<img src="images/pca.png" width="250">
 
 感知，认知和行动流程
 
