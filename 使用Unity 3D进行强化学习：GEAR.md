@@ -78,9 +78,7 @@
 
 1.3 感知、认知、行动
 
-![A simple ML-Agents environment](images/pca.png)
-
-<img src="images/pca.png" width="250">
+<img src="images/pca.png" width="500">
 
 感知，认知和行动流程
 
