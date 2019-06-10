@@ -55,7 +55,7 @@
 接近并收集需收集的物品（陈旧的面包，红色塑料杯和白色香肠）。
 不要与静态物体（椅子和桌子）碰撞，不要撞墙或收集木托盘（它们属于巴伐利亚帐篷的所有者）。
 
-![A simple ML-Agents environment](images/collect-avoid.png)
+<img src="images/collect-avoid.png" width="650">
 
 机器人被建模为立方体，可以在房间内漫游并收集相关物品。它的动作向量包含三个元素：
 
@@ -70,7 +70,7 @@
 物体必须靠近机器人的前部（限制在具有绿色边缘的区域内）
 机器人必须决定激活“抓取器”。当抓取状态被激活时，机器人的颜色从白色变为红色。
 
-![A simple ML-Agents environment](images/greenvol.png)
+<img src="images/greenvol.png" width="650">
 
 如果要收集物体，则必须将其限制在前面的体积内（绿色边缘）。
 
@@ -114,13 +114,13 @@ reddit用户[Flag_Red](https://www.reddit.com/user/Flag_Red)指出了**每步惩
 
 2.1 语义分割
 
-![A simple ML-Agents environment](images/segnet.png)
+<img src="images/segnet.png" width="650">
 
 机器人本身不知道应该收集哪个物品、避免哪个物品，这个信息从一个神经网络中获得：将RBG图像映射为语义分割图。为此我们创建了一个3007对图像的数据集，包含RBG帧（输入）和对应的语义分割图（从Unity 3D自定义着色器获得的真值ground truth），然后使用[Semantic Segmentation Suite](https://github.com/GeorgeSeif/Semantic-Segmentation-Suite)和数据集快速训练[SegNet](https://arxiv.org/pdf/1511.00561.pdf)（Badrinarayan等，2015）。尽管SegNet并不是目前的最优模型，但其结构简单（易于调试和修改），问题领域相对简单（构建的图像，简单的光线条件，可重复的环境）和额外的要求（尽可能少的项目开销），这是一个不错的选择。
 
-![3](images/final3.gif)
-![2](images/final1.gif)
-![1](images/final2.gif)
+<img src="images/final3.gif" width="650">
+<img src="images/final1.gif" width="650">
+<img src="images/final2.gif" width="650">
 
 SegNet：输入，基础事实，预测。
 
