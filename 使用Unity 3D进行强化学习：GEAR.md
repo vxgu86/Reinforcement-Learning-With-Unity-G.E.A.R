@@ -38,7 +38,7 @@
 
 那么有没有可能变成自动化清理任务？坦率地说，这也是机器人可以更高效地完成的任务。尤其是智能自动机器人可以全天候工作。一群小型机器人更是可以将垃圾收集过程大大加速，同时具有很高的成本效益。
 
-![A simple ML-Agents environment](images/multiagents.gif)
+<img src="images/multiagents.gif" width="650">
 
 一群同步的自主机器人肯定能够超越人类工作者。
 
@@ -46,7 +46,7 @@
 
 1.2 智能体与环境：
 
-![A simple ML-Agents environment](images/scene.png)
+<img src="images/scene.png" width="650">
 
 训练环境是一个房间，机器人的目标是探索环境并学习正确的推理（政策），我们通过一系列的奖励和惩罚间接达到这个目的。
 
@@ -78,7 +78,7 @@
 
 1.3 感知、认知、行动
 
-<img src="images/pca.png" width="500">
+<img src="images/pca.png" width="650">
 
 感知，认知和行动流程
 
